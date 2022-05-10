@@ -1,3 +1,3 @@
 # Change Log
 
-Shouldn't see this on the tag release
+staging-1.0.0
