@@ -56,6 +56,6 @@ jobs:
 
     - name: Push Pytest results to Testspace server
       run: |
-          testspace "junit-*.xml{tests}"
+          testspace "junit-*.xml"
       working-directory: ${{env.working-directory}}
       if: always()
