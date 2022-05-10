@@ -7,11 +7,11 @@ on:
   push:
     branches:
       - 'release/**'
+    tags:
+      - staging-*
   pull_request:
     branches:
       - 'release/**'
-  tags:
-    - staging-*
   schedule:
     # * is a special character in YAML so you have to quote this string
     # https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
