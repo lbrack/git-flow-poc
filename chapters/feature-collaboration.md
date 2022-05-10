@@ -1,6 +1,7 @@
 # Collaborating on a Feature
 
-To be documented
+This is based on the [Simple Feature Scenario](./feature-simple.md) and it assumes 
+that the primary owner of the feature 
 
 ## Merging
 

@@ -17,23 +17,16 @@ This is at the very beginning. We initialize a blank repos as follow:
 
 * [Feature (Simple Case)](./chapters/feature-simple.md)
 
-  A simple feature branch demo
+  A simple feature branch demo. This is when, you, as an individual contributor
+  decide to develop a feature.
 
 
 * [Merging Feature](./chapters/feature-merge.md)
 
-  How to merge a feature branch
+  How to merge a feature branch. This includes some "gotchas" about GitHub Pull Requests.
 
 
 * [Feature (Collaboration)](./chapters/feature-collaboration.md)
   
-  Collaborating on a feature branch
-
-
-
-
-
-
-
-
-
+  Collaborating on a feature branch. In this case, a user started to work on a feature 
+  and want to share the branch with a colleague. 
