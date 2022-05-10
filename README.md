@@ -43,10 +43,8 @@ Now, start committing on your feature. When done, use:
 (tempo-test):git-flow-poc|feature/initial-readme⚡
 ```
 
-## Publishing the feature branch
-
-First I need to create the remote repos on GitHub. Note that this step is not necessary
-if the repos already exists
+If you haven't done so, create the repository on GitHub (for Tempo, it should be 
+``--private``)
 
 ```shell
 gh repo create lbrack/git-flow-poc --public --source . --push
@@ -54,6 +52,42 @@ gh repo create lbrack/git-flow-poc --public --source . --push
 ✓ Added remote git@github.com:lbrack/git-flow-poc.git
 ✓ Pushed commits to git@github.com:lbrack/git-flow-poc.git
 ```
+
+## Publishing the feature branch
+
+
+```shell
+(tempo-test):git-flow-poc|feature/initial-readme ⇒  git flow publish                    
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 553 bytes | 553.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:lbrack/git-flow-poc.git
+   8c0a820..8a28861  feature/initial-readme -> feature/initial-readme
+Branch 'feature/initial-readme' set up to track remote branch 'feature/initial-readme' from 'origin'.
+Already on 'feature/initial-readme'
+Your branch is up to date with 'origin/feature/initial-readme'.
+
+Summary of actions:
+- The remote branch 'feature/initial-readme' was created or updated
+- The local branch 'feature/initial-readme' was configured to track the remote branch
+- You are now on branch 'feature/initial-readme'
+
+```
+
+## Creating a merge request
+
+Original git-flow wasn't meant to work with a system like GitHub or GitLab. 
+Therefore, it is not possible to create a merge request via the gitflow command,
+so we will try the following:
+
+1. Create a pull request using ``gh pr create``
+2. approve the PR on GitHub
+3. merge the PR using ``git flow feature finish`` which will merge to develop.
+
 
 
 
