@@ -114,8 +114,7 @@ so we will try the following:
 
 1. Create a pull request using ``gh pr create``
 2. approve the PR on GitHub
-3. merge the PR using ``git flow feature finish`` which will merge to develop.
-
+3. delete the local feature branch
 ### Initializing Merge Request
 
 ```shell
@@ -132,6 +131,9 @@ Creating pull request for feature/initial-readme into develop in lbrack/git-flow
   Cancel
 
 ```
+
+Once the merge request has been approved, merge it via command line ``gh pr merge``
+since the merge has been done, do not use ``git flow feature finish <feature>``
 
 
 
