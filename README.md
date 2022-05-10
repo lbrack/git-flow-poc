@@ -132,8 +132,18 @@ Creating pull request for feature/initial-readme into develop in lbrack/git-flow
 
 ```
 
-Once the merge request has been approved, merge it via command line ``gh pr merge``
+Once the merge request has been approved, merge it via command line ``gh pr merge --squash --delete-branch``
+
+---
+
+**WARNING**
 since the merge has been done, do not use ``git flow feature finish <feature>``
+---
+
+instead clean up the local feature branch ``git pull --all --prune``
+
+
+
 
 
 
