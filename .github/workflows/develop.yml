@@ -4,7 +4,9 @@
 name: Develop Tests
 
 on:
-  push :
+  push:
+    branches: [ develop ]
+  pull_request:
     branches: [ develop ]
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -24,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - uses: testspace-com/setup-testspace@v1
       with:
@@ -50,10 +52,10 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest test
+        pytest test --junit-xml=junit-report.xml
 
     - name: Push Pytest results to Testspace server
       run: |
-          testspace "junit-*.xml{tests}"
+          testspace "junit-*.xml"
       working-directory: ${{env.working-directory}}
       if: always()
