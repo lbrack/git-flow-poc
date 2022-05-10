@@ -116,6 +116,22 @@ so we will try the following:
 2. approve the PR on GitHub
 3. merge the PR using ``git flow feature finish`` which will merge to develop.
 
+### Initializing Merge Request
+
+```shell
+(tempo-test):git-flow-poc|feature/initial-readme ⇒  gh pr create    
+
+Creating pull request for feature/initial-readme into develop in lbrack/git-flow-poc
+
+? Title feature/initial readme
+? Body <Received>
+? What's next?  [Use arrows to move, type to filter]
+> Submit
+  Continue in browser
+  Add metadata
+  Cancel
+
+```
 
 
 
