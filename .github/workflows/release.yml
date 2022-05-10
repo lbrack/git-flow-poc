@@ -34,7 +34,7 @@ jobs:
     - uses: testspace-com/setup-testspace@v1
       with:
         domain: ${{ github.repository_owner }}
-        token: ${{ secrets.TESTSPACE_TOKEN }}
+        #token: ${{ secrets.TESTSPACE_TOKEN }}
 
     - name: Install build essentials
       run: |
@@ -60,6 +60,6 @@ jobs:
 
     - name: Push Pytest results to Testspace server
       run: |
-          testspace "junit-*.xml" "ci-tests/staging#${{ github.actor }}"
+          testspace "junit-*.xml" "ci-demo/staging#${{ github.actor }}"
       working-directory: ${{env.working-directory}}
       if: always()
