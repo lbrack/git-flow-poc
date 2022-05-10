@@ -11,7 +11,7 @@ This is at the very beginning. We initialize a blank repos as follow:
 
   Basic explaning about GitFlow
 
-* [Cloning Project](./chapters/getting-started.md)
+* [Cloning Project](./chapters/cloning.md)
 
   This chapter explains how to clone an existing GitFlow repos and initialize it.
 
