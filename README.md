@@ -20,11 +20,15 @@ This is at the very beginning. We initialize a blank repos as follow:
   A simple feature branch demo. This is when, you, as an individual contributor
   decide to develop a feature.
 
+* [Switching Feature Branches](./chapters/feature-switch.md)
+
+  A simple feature branch demo. This is when, you, as an individual contributor
+  decide to develop a feature.
+
 
 * [Merging Feature](./chapters/feature-merge.md)
 
   How to merge a feature branch. This includes some "gotchas" about GitHub Pull Requests.
-
 
 * [Feature (Collaboration)](./chapters/feature-collaboration.md)
   
