@@ -7,6 +7,10 @@ on:
   push:
     branches:
       - 'release/**'
+
+    tags:
+      - 'staging-**'
+
   pull_request:
     branches:
       - 'release/**'
