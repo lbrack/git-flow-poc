@@ -34,6 +34,7 @@ jobs:
     - uses: testspace-com/setup-testspace@v1
       with:
         domain: ${{ github.repository_owner }}
+        token: ${{ secrets.TESTSPACE_TOKEN }}
 
     - name: Install build essentials
       run: |
