@@ -24,25 +24,6 @@ And we started with 2 branches:
 * develop - is based of main and contains the current developement effort. 
 * main - main is where all the releases end up being merge
 
-## Creating a feature
-
-We now create a feature (this readme document)
-
-```shell
-git-flow-poc|develop⚡ ⇒  git flow feature start initial-readme               
-Switched to a new branch 'feature/initial-readme'
-
-Summary of actions:
-- A new branch 'feature/initial-readme' was created, based on 'develop'
-- You are now on branch 'feature/initial-readme'
-
-Now, start committing on your feature. When done, use:
-
-     git flow feature finish initial-readme
-
-git-flow-poc|feature/initial-readme⚡
-```
-
 If you haven't done so, create the repository on GitHub (for Tempo, it should be 
 ``--private``)
 
@@ -75,6 +56,30 @@ To github.com:lbrack/git-flow-poc.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
+
+Finally, set the branches in GitHub
+
+![foo](./images/gh-branch-settings.png)
+
+## Creating a feature
+
+We now create a feature (this readme document)
+
+```shell
+git-flow-poc|develop⚡ ⇒  git flow feature start initial-readme               
+Switched to a new branch 'feature/initial-readme'
+
+Summary of actions:
+- A new branch 'feature/initial-readme' was created, based on 'develop'
+- You are now on branch 'feature/initial-readme'
+
+Now, start committing on your feature. When done, use:
+
+     git flow feature finish initial-readme
+
+git-flow-poc|feature/initial-readme⚡
+```
+
 
 ## Publishing the feature branch
 
