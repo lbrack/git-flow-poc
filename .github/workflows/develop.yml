@@ -4,7 +4,9 @@
 name: Develop Tests
 
 on:
-  push :
+  push:
+    branches: [ develop ]
+  pull_request:
     branches: [ develop ]
   schedule:
     # * is a special character in YAML so you have to quote this string
