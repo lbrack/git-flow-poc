@@ -5,7 +5,7 @@ This is at the very beginning. We initialize a blank repos as follow:
 ## Initialization
 
 ```shell
-(tempo-test):git-flow-poc|main ⇒  git flow init        
+git-flow-poc|main ⇒  git flow init        
 No branches exist yet. Base branches must be created now.
 Branch name for production releases: [master] main
 Branch name for "next release" development: [develop] 
@@ -29,7 +29,7 @@ And we started with 2 branches:
 We now create a feature (this readme document)
 
 ```shell
-(tempo-test):git-flow-poc|develop⚡ ⇒  git flow feature start initial-readme               
+git-flow-poc|develop⚡ ⇒  git flow feature start initial-readme               
 Switched to a new branch 'feature/initial-readme'
 
 Summary of actions:
@@ -40,7 +40,7 @@ Now, start committing on your feature. When done, use:
 
      git flow feature finish initial-readme
 
-(tempo-test):git-flow-poc|feature/initial-readme⚡
+git-flow-poc|feature/initial-readme⚡
 ```
 
 If you haven't done so, create the repository on GitHub (for Tempo, it should be 
@@ -53,11 +53,34 @@ gh repo create lbrack/git-flow-poc --public --source . --push
 ✓ Pushed commits to git@github.com:lbrack/git-flow-poc.git
 ```
 
+Then push the develop and main branches
+
+```shell
+git-flow-poc|develop ⇒  git push -u origin develop                      
+remote: Create a pull request for 'develop' on GitHub by visiting:
+remote:      https://github.com/lbrack/git-flow-poc/pull/new/develop
+remote: 
+To github.com:lbrack/git-flow-poc.git
+ * [new branch]      develop -> develop
+Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+git-flow-poc|develop ⇒  git checkout main         
+Switched to branch 'main'
+git-flow-poc|main⚡ ⇒  git push -u origin main   
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'main' on GitHub by visiting:
+remote:      https://github.com/lbrack/git-flow-poc/pull/new/main
+remote: 
+To github.com:lbrack/git-flow-poc.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+```
+
 ## Publishing the feature branch
 
 
 ```shell
-(tempo-test):git-flow-poc|feature/initial-readme ⇒  git flow publish                    
+git-flow-poc|feature/initial-readme ⇒  git flow publish                    
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 12 threads
