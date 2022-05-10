@@ -26,27 +26,27 @@ gf-init: ## Initialize the git repos with the appropriate structure
 ifeq ($(GF_INITIALIZED), 0)
 	@echo git flow has been initialized already!! && exit 1
 endif
-	@echo setting master to main
-	echo git config gitflow.branch.master 'main'
-
-	@echo setting develop branch to 'develop'
-	echo git config gitflow.branch.develop develop
-
-	@echo feature branches will start with 'feature/'
-	echo git config gitflow.prefix.feature feature/
-
-	@echo bugfix branches will start with 'bugfix/'
-	echo git config gitflow.prefix.bugfix bugfix/
-
-	@echo release branches will start with 'release/'
-	echo git config gitflow.prefix.release release/
-
-	@echo hotfix branches will start with 'hotfix/'
-	echo git config gitflow.prefix.hotfix hotfix/
-
-	@echo git config gitflow.prefix.versiontag
-
-	@echo install hooks locally
-	echo git config gitflow.path.hooks /Users/lbrack/temp/git-flow-poc/.git/hooks
+# 	@echo setting master to main
+# 	echo git config gitflow.branch.master main
+#
+# 	@echo setting develop branch to 'develop'
+# 	echo git config gitflow.branch.develop develop
+#
+# 	@echo feature branches will start with 'feature/'
+# 	echo git config gitflow.prefix.feature feature/
+#
+# 	@echo bugfix branches will start with 'bugfix/'
+# 	echo git config gitflow.prefix.bugfix bugfix/
+#
+# 	@echo release branches will start with 'release/'
+# 	echo git config gitflow.prefix.release release/
+#
+# 	@echo hotfix branches will start with 'hotfix/'
+# 	echo git config gitflow.prefix.hotfix hotfix/
+#
+# 	@echo git config gitflow.prefix.versiontag
+#
+# 	@echo install hooks locally
+# 	echo git config gitflow.path.hooks /Users/lbrack/temp/git-flow-poc/.git/hooks
 
 	@echo done!
