@@ -114,8 +114,7 @@ so we will try the following:
 
 1. Create a pull request using ``gh pr create``
 2. approve the PR on GitHub
-3. merge the PR using ``git flow feature finish`` which will merge to develop.
-
+3. delete the local feature branch
 ### Initializing Merge Request
 
 ```shell
