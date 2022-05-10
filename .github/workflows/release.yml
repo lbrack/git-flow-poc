@@ -62,6 +62,11 @@ jobs:
       run: |
         pytest test --junit-xml=junit-report.xml
 
+    - name: Echo variables
+      run: |
+        echo "github.event.inputs.result_name '${{ github.event.inputs.result_name }}'"
+        echo "env.GITHUB_REF_NAME '${{ env.GITHUB_REF_NAME }}'"
+
     - name: Push Pytest results to Testspace server
       run: |
           testspace "junit-*.xml" "ci-demo/staging#${{ github.actor }}"
