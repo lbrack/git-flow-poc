@@ -44,3 +44,20 @@ This section explain how to deliver changes to develop
 * [Merging Feature](./chapters/feature-merge.md)
 
   How to merge a feature branch. This includes some "gotchas" about GitHub Pull Requests.
+
+## Bug Fixes
+
+```shell
+git-flow-poc|develop ⇒  git flow bugfix start doc-error
+Switched to a new branch 'bugfix/doc-error'
+
+Summary of actions:
+- A new branch 'bugfix/doc-error' was created, based on 'develop'
+- You are now on branch 'bugfix/doc-error'
+
+Now, start committing on your bugfix. When done, use:
+
+     git flow bugfix finish doc-error
+
+```
+
