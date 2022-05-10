@@ -43,5 +43,17 @@ Now, start committing on your feature. When done, use:
 (tempo-test):git-flow-poc|feature/initial-readme⚡
 ```
 
+## Publishing the feature branch
+
+First I need to create the remote repos on GitHub. Note that this step is not necessary
+if the repos already exists
+
+```shell
+gh repo create lbrack/git-flow-poc --public --source . --push
+✓ Created repository lbrack/git-flow-poc on GitHub
+✓ Added remote git@github.com:lbrack/git-flow-poc.git
+✓ Pushed commits to git@github.com:lbrack/git-flow-poc.git
+```
+
 
 
