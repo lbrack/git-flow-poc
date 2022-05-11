@@ -61,7 +61,7 @@ jobs:
           BUILD_SLUG=M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}
         fi
         TEST_SPACE_RESULT_NAME="${BUILD_SLUG////-}"
-        echo "::set-env name=TEST_SPACE_RESULT_NAME::$TEST_SPACE_RESULT_NAME"
+        echo "::set-env name=TEST_SPACE_RESULT_NAME::'$TEST_SPACE_RESULT_NAME'"
         echo BUILD_SLUG=$BUILD_SLUG
         echo TEST_SPACE_RESULT_NAME=$TEST_SPACE_RESULT_NAME
 
