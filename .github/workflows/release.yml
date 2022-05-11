@@ -25,6 +25,9 @@ on:
         description: Name of the result as you would like it to appear on testspace
         required: true
 
+env:
+  TEST_SPACE_RESULT_NAME: A${{ github.run_number }}:${{ github.actor }}-${{ github.ref_name }}
+
 jobs:
 
   ci-test-staging:
@@ -68,14 +71,14 @@ jobs:
 #      working-directory: ${{env.working-directory}}
 #      if: always() && ${{ github.event.inputs.result_name }} != ''
 
-    - name: MANUAL Pushing Pytest results to Testspace server
-      run: |
-          testspace "junit-*.xml" "ci-demo/staging#M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}"
-      working-directory: ${{env.working-directory}}
-      if: ${{ github.event.inputs.result_name }} != '' && always()
+#    - name: MANUAL Pushing Pytest results to Testspace server
+#      run: |
+#          testspace "junit-*.xml" "ci-demo/staging#M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}"
+#      working-directory: ${{env.working-directory}}
+#      if: ${{ github.event.inputs.result_name }} != '' && always()
 
     - name: AUTO Push Pytest results to Testspace server
       run: |
-          testspace "junit-*.xml" "ci-demo/staging#A${{ github.run_number }}:${{ github.actor }}-${{ github.ref_name }}"
+          testspace "junit-*.xml" "ci-demo/staging#${{ env.TEST_SPACE_RESULT_NAME}}"
       working-directory: ${{env.working-directory}}
-      if: ${{ github.event.inputs.result_name }} == '' && always()
+      if: always()
