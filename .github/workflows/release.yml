@@ -65,7 +65,7 @@ jobs:
     - name: Echo variables
       run: |
         echo "github.event.inputs.result_name '${{ github.event.inputs.result_name }}'"
-        echo "env.GITHUB_REF_NAME '${{ env.GITHUB_REF_NAME }}'"
+        echo "env.GITHUB_REF_NAME '${{ github.ref_name }}}'"
 
     - name: Push Pytest results to Testspace server
       run: |
