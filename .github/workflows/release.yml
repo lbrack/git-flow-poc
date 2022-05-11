@@ -24,8 +24,8 @@ on:
       result_name:
         description: Name of the result as you would like it to appear on testspace
         required: true
+
 env:
-  BUILD_SLUG: A${{ github.run_number }}:${{ github.actor }}-${{ github.ref_name }}
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   # The `set-env` command is disabled. Please upgrade to using Environment Files or
   # opt into unsecure command execution by setting the `ACTIONS_ALLOW_UNSECURE_COMMANDS`
@@ -42,10 +42,18 @@ jobs:
 
     - name: Create TestSpace Result Name
       # We need to do this since test space interprets a / as a folder
+      # If the result_name is not set it is an Automatically triggered run (prefix M)
+      # otherwise it is manual (prefix M)
       run: |
+        if [ -z "${{ github.event.inputs.result_name }}" ]; then
+          BUILD_SLUG=A${{ github.run_number }}:${{ github.actor }}-${{ github.ref_name }}
+        else
+          BUILD_SLUG=M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}
+        fi
         TEST_SPACE_RESULT_NAME="${BUILD_SLUG////-}"
-        echo $TEST_SPACE_RESULT_NAME
         echo "::set-env name=TEST_SPACE_RESULT_NAME::$TEST_SPACE_RESULT_NAME"
+        echo $BUILD_SLUG
+        echo $TEST_SPACE_RESULT_NAME
 
     - uses: actions/checkout@v3
 
@@ -53,8 +61,6 @@ jobs:
       with:
         domain: ${{ github.repository_owner }}
         token: ${{ secrets.TESTSPACE_TOKEN }}
-
-
 
     - name: Install build essentials
       run: |
@@ -90,7 +96,7 @@ jobs:
 #      working-directory: ${{env.working-directory}}
 #      if: ${{ github.event.inputs.result_name }} != '' && always()
 
-    - name: AUTO Push Pytest results to Testspace server
+    - name: Push Pytest results to Testspace server
       run: |
           testspace "junit-*.xml" "ci-demo/staging#$TEST_SPACE_RESULT_NAME"
       working-directory: ${{env.working-directory}}
