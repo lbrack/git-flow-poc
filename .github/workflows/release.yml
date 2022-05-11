@@ -62,19 +62,20 @@ jobs:
       run: |
         pytest test --junit-xml=junit-report.xml
 
-    - name: Echo variables
-      run: |
-        echo "github.event.inputs.result_name '${{ github.event.inputs.result_name }}'"
-        echo "env.GITHUB_REF_NAME '${{ github.ref_name }}'"
-
     - name: [Manual] Pushing Pytest results to Testspace server
       run: |
-          testspace "junit-*.xml" "ci-demo/staging#M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}"
+          testspace "junit-*.xml" "ci-demo/staging#M${{ github.actor }}"
       working-directory: ${{env.working-directory}}
       if: always() && ${{ github.event.inputs.result_name }} != ''
 
-    - name: [Auto] Push Pytest results to Testspace server
-      run: |
-          testspace "junit-*.xml" "ci-demo/staging#A${{ github.run_number }}:${{ github.actor }}-${{ github.ref_name }}"
-      working-directory: ${{env.working-directory}}
-      if: always() && ${{ github.event.inputs.result_name }} == ''
+#    - name: [Manual] Pushing Pytest results to Testspace server
+#      run: |
+#          testspace "junit-*.xml" "ci-demo/staging#M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}"
+#      working-directory: ${{env.working-directory}}
+#      if: always() && ${{ github.event.inputs.result_name }} != ''
+
+#    - name: [Auto] Push Pytest results to Testspace server
+#      run: |
+#          testspace "junit-*.xml" "ci-demo/staging#A${{ github.run_number }}:${{ github.actor }}-${{ github.ref_name }}"
+#      working-directory: ${{env.working-directory}}
+#      if: always() && ${{ github.event.inputs.result_name }} == ''
