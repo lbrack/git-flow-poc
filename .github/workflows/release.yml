@@ -1,5 +1,15 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+#
+# This workflow is kicked off when a push, pull request even is received
+# Or a tag is created.
+#
+# It can also be manually triggered by the user in which case, the result_name
+# is added
+# The testspace results have the following form:
+#
+#   A<workflow ID>:<author>-<branch or tag>
+#   e.g. A25:lbrack-release-1.x
+#   M<workflow ID>:<author>-<result_name>-<branch or tag>
+#   e.g. M26:lbrack-hello world-release-1.x
 
 name: Staging Release
 
@@ -7,13 +17,13 @@ on:
   push:
     branches:
       - 'release/**'
-
     tags:
       - 'staging-**'
 
   pull_request:
     branches:
       - 'release/**'
+
   schedule:
     # * is a special character in YAML so you have to quote this string
     # https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
@@ -52,8 +62,8 @@ jobs:
         fi
         TEST_SPACE_RESULT_NAME="${BUILD_SLUG////-}"
         echo "::set-env name=TEST_SPACE_RESULT_NAME::$TEST_SPACE_RESULT_NAME"
-        echo $BUILD_SLUG
-        echo $TEST_SPACE_RESULT_NAME
+        echo BUILD_SLUG=$BUILD_SLUG
+        echo TEST_SPACE_RESULT_NAME=$TEST_SPACE_RESULT_NAME
 
     - uses: actions/checkout@v3
 
@@ -83,18 +93,6 @@ jobs:
     - name: Test with pytest
       run: |
         pytest test --junit-xml=junit-report.xml
-
-#    - name: Pushing Pytest results to Testspace server
-#      run: |
-#          testspace "junit-*.xml" "ci-demo/staging#M${{ github.actor }}"
-#      working-directory: ${{env.working-directory}}
-#      if: always() && ${{ github.event.inputs.result_name }} != ''
-
-#    - name: MANUAL Pushing Pytest results to Testspace server
-#      run: |
-#          testspace "junit-*.xml" "ci-demo/staging#M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}"
-#      working-directory: ${{env.working-directory}}
-#      if: ${{ github.event.inputs.result_name }} != '' && always()
 
     - name: Push Pytest results to Testspace server
       run: |
