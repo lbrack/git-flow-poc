@@ -1,0 +1,34 @@
+[gitflow "branch"]
+        master = main
+        develop = develop
+[gitflow "prefix"]
+        feature = feature/
+        bugfix = bugfix/
+        release = release/
+        hotfix = hotfix/
+        support = support/
+        versiontag =
+[gitflow "path"]
+        hooks = /Users/lbrack/github/lbrack/git-flow-poc/.git/hooks
+[gitflow "branch.feature/initial-readme"]
+        base = develop
+[remote "origin"]
+        url = git@github.com:lbrack/git-flow-poc.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        gh-resolved = base
+[branch "develop"]
+        remote = origin
+        merge = refs/heads/develop
+[branch "main"]
+        remote = origin
+        merge = refs/heads/main
+[gitflow "branch.feature/readme-update"]
+        base = develop
+[gitflow "branch.feature/refine-feature"]
+        base = develop
+[gitflow "branch.feature/simple-feature"]
+        base = develop
+[gitflow "branch.feature/feature-collaboration"]
+        base = develop
+[gitflow "branch.feature/git-flow-init"]
+        base = develop

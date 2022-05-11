@@ -1,0 +1,61 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Develop Tests
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
+    # Note that this schedule runs on the last commit of the DEFAULT branch.
+    - cron:  '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      result_name:
+        description: Name of the result as you would like it to appear on testspace
+        required: true
+
+jobs:
+
+  develop-ci:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: testspace-com/setup-testspace@v1
+      with:
+        domain: ${{ github.repository_owner }}
+
+    - name: Install build essentials
+      run: |
+        sudo apt-get install build-essential
+
+    - name: Add local bin to path
+      run: |
+        echo "/home/runner/.local/bin" >> $GITHUB_PATH
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.9"
+
+    - name: Install Dependencies
+      run: |
+        pip install -r requirements.txt
+
+
+    - name: Test with pytest
+      run: |
+        pytest test --junit-xml=junit-report.xml
+
+    - name: Push Pytest results to Testspace server
+      run: |
+          testspace "junit-*.xml"
+      working-directory: ${{env.working-directory}}
+      if: always()
