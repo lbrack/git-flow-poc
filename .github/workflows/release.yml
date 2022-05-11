@@ -67,7 +67,7 @@ jobs:
         echo "github.event.inputs.result_name '${{ github.event.inputs.result_name }}'"
         echo "env.GITHUB_REF_NAME '${{ github.ref_name }}'"
 
-    - name: [Manual] Pushing Pytest results for {{ github.actor }} to Testspace server
+    - name: [Manual] Pushing Pytest results to Testspace server
       run: |
           testspace "junit-*.xml" "ci-demo/staging#M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}"
       working-directory: ${{env.working-directory}}
