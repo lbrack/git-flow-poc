@@ -55,13 +55,13 @@ jobs:
       # If the result_name is not set it is an Automatically triggered run (prefix M)
       # otherwise it is manual (prefix M)
       run: |
-        if [ -z "${{ github.event.inputs.result_name }}" ]; then
+        if [ -z '${{ github.event.inputs.result_name }}' ]; then
           BUILD_SLUG=A${{ github.run_number }}:${{ github.actor }}-${{ github.ref_name }}
         else
           BUILD_SLUG=M${{ github.run_number }}:${{ github.actor }}-${{ github.event.inputs.result_name }}-${{ github.ref_name }}
         fi
         TEST_SPACE_RESULT_NAME="${BUILD_SLUG////-}"
-        echo "::set-env name=TEST_SPACE_RESULT_NAME::$TEST_SPACE_RESULT_NAME"
+        echo "::set-env name=TEST_SPACE_RESULT_NAME::'$TEST_SPACE_RESULT_NAME'"
         echo BUILD_SLUG=$BUILD_SLUG
         echo TEST_SPACE_RESULT_NAME=$TEST_SPACE_RESULT_NAME
 
