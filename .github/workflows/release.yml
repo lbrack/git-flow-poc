@@ -62,7 +62,7 @@ jobs:
       run: |
         pytest test --junit-xml=junit-report.xml
 
-    - name: [Manual] Pushing Pytest results to Testspace server
+    - name: Pushing Pytest results to Testspace server
       run: |
           testspace "junit-*.xml" "ci-demo/staging#M${{ github.actor }}"
       working-directory: ${{env.working-directory}}
