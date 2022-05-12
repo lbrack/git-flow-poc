@@ -11,6 +11,7 @@
 #   M<workflow ID>:<author>-<result_slug>-<branch or tag>
 #   e.g. M26:lbrack-hello world-release-1.x
 # Tags 3.0.1
+# Tags 3.0.2
 
 name: Staging Release
 
