@@ -53,7 +53,6 @@ jobs:
       with:
         ref: ${{ github.env.ref_name }}
 
-
     - uses: testspace-com/setup-testspace@v1
       with:
         domain: ${{ github.repository_owner }}
