@@ -1,3 +1,3 @@
 import os
 def test_a():
-    assert str(os.environ['GITHUB_REF_NAME']) == "staging-4.0"
+    assert str(os.environ['GITHUB_REF_NAME']) == "staging-4.1"
