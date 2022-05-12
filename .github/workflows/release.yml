@@ -30,7 +30,7 @@ on:
     # * is a special character in YAML so you have to quote this string
     # https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#scheduled-events
     # Note that this schedule runs on the last commit of the DEFAULT branch.
-    - cron:  '0 5 * * *'
+    - cron:  '* * * * *'
   workflow_dispatch:
     inputs:
       result_slug:
