@@ -1,2 +1,3 @@
+import os
 def test_a():
-    pass
+    assert str(os.environ['GITHUB_REF_NAME']) == "4.0"
